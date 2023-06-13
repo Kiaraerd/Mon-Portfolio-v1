@@ -35,38 +35,8 @@ document.querySelector('.prec').innerHTML=`<a class="bouton" href="infos.html?pr
 document.querySelector('.suiv').innerHTML=`<a class="bouton" href="infos.html?projet=${PROJETS[projet]["lien_suiv"]}"> Projet suivant </a>`;
 document.querySelector("header>div").innerHTML=`<a href="projet.html#${PROJETS[projet]["retour"]}"> Retour </a>`;
 
-// anim texte prof 
-
-document.addEventListener("scroll", addClass, {passive: true});
-        function addClass(){
-            document.querySelectorAll("[data-class]").forEach(e=>{
-                if(e.getBoundingClientRect().y < window.innerHeight - (e.dataset.offset || 0)){
-                    setTimeout(()=>{
-                        e.classList.add(e.dataset.class);
-					    e.removeAttribute("data-class");
-                    }, e.dataset.delay || 0)
-				}
-            })
-        }
-        addClass();
 
 
-// Envoi d'email
-
-function sendEmail(){
-
-    sendEmail.send({
-        Host: "smtp.yourisp.com",
-        Username : "username",
-        Password : "password",
-        To: 'them@website.com',
-        From : "you@isp.com",
-        Subject : "This is the subject",
-        Body : "And this is the body"    
-    }).then(
-        message => alert(message)
-    )
-}
 
 // fetch context
 

@@ -1,25 +1,15 @@
 
-// animation texte qui arrive d'en bas 
+// anim texte prof 
 
-const observer = new IntersectionObserver((entries) => {
-
-    entries.forEach((entry) => {
-        console.log(entry)
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
+document.addEventListener("scroll", addClass, {passive: true});
+        function addClass(){
+            document.querySelectorAll("[data-class]").forEach(e=>{
+                if(e.getBoundingClientRect().y < window.innerHeight - (e.dataset.offset || 0)){
+                    setTimeout(()=>{
+                        e.classList.add(e.dataset.class);
+					    e.removeAttribute("data-class");
+                    }, e.dataset.delay || 0)
+				}
+            })
         }
-        else{
-            entry.target.classList.remove('show');
-        }
-
-    });
-
-});
-
-const hiddenElements = document.querySelectorAll('.hidden');
-hiddenElements.forEach((el) => observer.observe(el));
-
-
-
-
-  
+        addClass();

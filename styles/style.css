@@ -114,8 +114,8 @@ input:hover{
 .hidden{
 
     opacity: 0;
-    transform: translateY(100%);
-    transition: all 1s;
+    transform: translateY(-50px);
+    /* transition: all 1s; */
    
 }
 
@@ -220,7 +220,7 @@ input:hover{
 }
 
 
-.apropos>.show>div{
+.apropos>.hidden>div{
 
     
     width: 50vw;
